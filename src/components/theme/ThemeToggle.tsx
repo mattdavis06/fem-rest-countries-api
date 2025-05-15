@@ -8,24 +8,31 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
+import { useEffect } from 'react'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
+  useEffect(() => {
+    // On render, set theme to light mode as default
+    // TODO: Add system, or store in LS/state
+    setTheme('light')
+  }, [])
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div className='text-primary-dark-blue flex cursor-pointer items-center gap-2 transition-all dark:text-white'>
+        <div className='text-primary-light-blue flex cursor-pointer items-center gap-2 transition-all dark:text-white'>
           {theme === 'light' && (
             <>
-              <Moon className='size-5' />
-              <p className='text-base font-extrabold'>Dark Mode</p>
+              <Moon className='size-4 md:size-5' />
+              <p className='text-sm font-extrabold md:text-base'>Dark Mode</p>
             </>
           )}
           {theme === 'dark' && (
             <>
-              <Sun className='size-5' />
-              <p className='text-base font-extrabold'>Light Mode</p>
+              <Sun className='size-4 md:size-5' />
+              <p className='text-sm font-extrabold md:text-base'>Light Mode</p>
             </>
           )}
           <span className='sr-only'>Toggle theme</span>

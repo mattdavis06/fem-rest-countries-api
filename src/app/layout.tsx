@@ -1,4 +1,4 @@
-import Header from '@/components/shared/Header'
+import Header from '@/components/layout/Header'
 import { ThemeProvider } from '@/components/theme/ThemeProvider'
 import type { Metadata } from 'next'
 import './globals.css'
@@ -16,16 +16,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <ThemeProvider
-        attribute='class'
-        defaultTheme='system'
-        disableTransitionOnChange
-      >
-        <body className='bg-bg-light dark:bg-bg-dark antialiased'>
+      <body className='bg-bg-light dark:bg-bg-dark antialiased'>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          disableTransitionOnChange
+        >
           <Header />
-          {children}
-        </body>
-      </ThemeProvider>
+          <main className='px-4 py-8'>
+            <div className='mx-auto max-w-7xl'>{children}</div>
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
