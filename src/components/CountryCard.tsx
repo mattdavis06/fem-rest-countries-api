@@ -1,3 +1,4 @@
+import { CountryTypes } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -5,27 +6,16 @@ interface CountryCardProps {
   country: CountryTypes
 }
 
-interface CountryTypes {
-  region: string
-  name: string
-  flags: {
-    svg: string
-  }
-  population: number
-  capital?: string
-}
-
 const CountryCard = ({ country }: CountryCardProps) => {
   return (
     <Link
-      href={`countries/${country.region.toLowerCase()}/${country.name.toLowerCase().replace(' ', '-')}`}
-      key={country.name}
+      href={`countries/${country.region.toLowerCase()}/${country.name.common.toLowerCase().replace(' ', '-')}`}
       className='dark:bg-primary-dark-blue grid w-full grid-rows-2 overflow-clip rounded-md bg-white'
     >
       <div className='max-h-[15rem] shadow-xs'>
         <Image
           src={country.flags.svg}
-          alt={`${country.name.toLowerCase()}-flag`}
+          alt={`${country.name.common.toLowerCase()}-flag`}
           width={500}
           height={500}
           className='h-full w-full object-cover'
@@ -33,7 +23,7 @@ const CountryCard = ({ country }: CountryCardProps) => {
       </div>
       <div className='px-8 py-10 inset-shadow-xs'>
         <h2 className='text-primary-light-blue mb-6 text-2xl font-extrabold text-pretty dark:text-white'>
-          {country.name}
+          {country.name.common}
         </h2>
         <div className='space-y-1.5'>
           <p className='text-primary-light-blue text-xl font-semibold break-all dark:text-white'>

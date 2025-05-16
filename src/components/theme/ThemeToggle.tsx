@@ -26,13 +26,13 @@ export function ThemeToggle() {
           {theme === 'light' && (
             <>
               <Moon className='size-4 md:size-5' />
-              <p className='text-sm font-extrabold md:text-base'>Dark Mode</p>
+              <p className='text-base font-extrabold md:text-lg'>Dark Mode</p>
             </>
           )}
           {theme === 'dark' && (
             <>
               <Sun className='size-4 md:size-5' />
-              <p className='text-sm font-extrabold md:text-base'>Light Mode</p>
+              <p className='text-base font-extrabold md:text-lg'>Light Mode</p>
             </>
           )}
           <span className='sr-only'>Toggle theme</span>
