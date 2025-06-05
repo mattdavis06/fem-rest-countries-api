@@ -9,7 +9,7 @@ interface CountryCardProps {
 const CountryCard = ({ country }: CountryCardProps) => {
   return (
     <Link
-      href={`countries/${country.region.toLowerCase()}/${country.name.common.toLowerCase().replace(' ', '-')}`}
+      href={`countries/${country.region.toLowerCase()}/${country.name.common.toLowerCase().replace(' ', '-')}/${country.cca3.toLowerCase()}`}
       className='dark:bg-primary-dark-blue hover:outline-primary-dark-blue grid w-full transform grid-rows-2 overflow-clip rounded-md bg-white shadow-md transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-xl hover:outline-3 dark:hover:outline-white'
     >
       <div className='max-h-[15rem] shadow-xs'>
