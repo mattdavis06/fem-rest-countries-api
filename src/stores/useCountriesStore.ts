@@ -5,6 +5,8 @@ type State = {
   countries: CountryTypes[]
   filteredCountries: CountryTypes[]
   setCountries: (data: CountryTypes[]) => void
+  searchTerm: string
+  selectedRegion: string
   search: (term: string) => void
   filterByRegion: (region: string) => void
   sortBy: (field: SortField, order?: SortOrder) => void
@@ -17,6 +19,8 @@ type SortOrder = 'asc' | 'desc'
 export const useCountriesStore = create<State>((set, get) => ({
   countries: [],
   filteredCountries: [],
+  searchTerm: '',
+  selectedRegion: 'All',
 
   setCountries: (data) => {
     const sortedData = [...data].sort((a, b) => {
@@ -32,7 +36,7 @@ export const useCountriesStore = create<State>((set, get) => ({
     const filtered = countries.filter((country) =>
       country.name.common.toLowerCase().includes(term.toLowerCase()),
     )
-    set({ filteredCountries: filtered })
+    set({ filteredCountries: filtered, searchTerm: term })
   },
 
   filterByRegion: (region) => {
@@ -41,7 +45,7 @@ export const useCountriesStore = create<State>((set, get) => ({
       set({ filteredCountries: countries })
     } else {
       const filtered = countries.filter((country) => country.region === region)
-      set({ filteredCountries: filtered })
+      set({ filteredCountries: filtered, selectedRegion: region })
     }
   },
 
@@ -63,6 +67,10 @@ export const useCountriesStore = create<State>((set, get) => ({
 
   resetFilters: () => {
     const { countries } = get()
-    set({ filteredCountries: countries })
+    set({
+      filteredCountries: countries,
+      searchTerm: '',
+      selectedRegion: 'All',
+    })
   },
 }))

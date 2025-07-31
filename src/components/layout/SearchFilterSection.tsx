@@ -6,11 +6,11 @@ import SortBySelect from './SortBySelect'
 const SearchFilterSection = () => {
   return (
     <section className='space-y-2'>
-      <div className='flex flex-col gap-2 md:flex-row md:items-center md:gap-4'>
+      <div className='flex flex-col gap-2 md:flex-row md:items-center'>
         <SearchFilter />
         <FilterSelect />
       </div>
-      <div className='flex flex-col gap-2 md:flex-row md:items-center md:gap-4'>
+      <div className='flex flex-col gap-2 md:flex-row md:items-center'>
         <SortBySelect />
         <ResetBtn />
       </div>

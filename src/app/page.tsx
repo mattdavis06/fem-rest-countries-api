@@ -1,7 +1,7 @@
 import CardsGrid from '@/components/layout/CardsGrid'
 import SearchFilterSection from '@/components/layout/SearchFilterSection'
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <SearchFilterSection />

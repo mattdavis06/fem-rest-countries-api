@@ -6,6 +6,7 @@ import { RotateCcw } from 'lucide-react'
 
 const ResetBtn = () => {
   const resetFilters = useCountriesStore((state) => state.resetFilters)
+
   return (
     <Button className='h-14 md:flex-1' onClick={() => resetFilters()}>
       <RotateCcw />

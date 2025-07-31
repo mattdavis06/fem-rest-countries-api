@@ -8,7 +8,7 @@ import { Label } from '../ui/label'
 
 const SearchFilter = () => {
   const id = useId()
-  const { search } = useCountriesStore()
+  const { search, searchTerm } = useCountriesStore()
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     search(e.target.value)
@@ -25,6 +25,7 @@ const SearchFilter = () => {
           className='peer ps-16'
           placeholder='Search for a country...'
           type='search'
+          value={searchTerm}
           onChange={handleSearch}
         />
         <div className='text-primary-gray pointer-events-none absolute inset-y-0 start-0 flex items-center justify-center ps-6 peer-disabled:opacity-50 dark:text-white'>

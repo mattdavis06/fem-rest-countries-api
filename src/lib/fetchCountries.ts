@@ -1,12 +1,8 @@
+import { COUNTRIES_API } from '@/constants/urls'
+
 export const fetchAllCountries = async () => {
-  const baseUrl = process.env.COUNTRIES_API
-
-  if (!baseUrl) {
-    throw new Error('COUNTRIES_API env variable is not defined')
-  }
-
-  const res = await fetch(`${baseUrl}/all`, {
-    next: { revalidate: 86400 }, // Cache for 1 day (Next.js 15 style)
+  const res = await fetch(`${COUNTRIES_API}/all`, {
+    next: { revalidate: 86400 }, //* Cache for 1 day
   })
 
   if (!res.ok) {

@@ -14,7 +14,7 @@ import { useEffect, useId, useState } from 'react'
 const Component = () => {
   const id = useId()
   const countries = useCountriesStore((state) => state.countries)
-  const filterByRegion = useCountriesStore((state) => state.filterByRegion)
+  const { filterByRegion, selectedRegion } = useCountriesStore()
 
   const [regions, setRegions] = useState<string[]>([])
 
@@ -35,7 +35,7 @@ const Component = () => {
       <Label htmlFor={id} className='sr-only'>
         Filter by Region
       </Label>
-      <Select onValueChange={handleChange}>
+      <Select onValueChange={handleChange} value={selectedRegion}>
         <SelectTrigger id={id}>
           <SelectValue placeholder='Filter by Region' />
         </SelectTrigger>
