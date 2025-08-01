@@ -9,8 +9,13 @@ type CountryPageProps = {
   }
 }
 
-export default async function CountryPage({ params }: CountryPageProps) {
-  const decodedCode = decodeURIComponent(params.cca3)
+export default async function CountryPage({
+  params,
+}: {
+  params: Promise<CountryPageProps['params']>
+}) {
+  const { cca3 } = await params
+  const decodedCode = decodeURIComponent(cca3)
   const country = await fetchCountryByCode(decodedCode)
 
   if (!country) {
