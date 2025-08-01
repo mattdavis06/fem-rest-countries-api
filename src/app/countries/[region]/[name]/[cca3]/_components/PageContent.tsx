@@ -1,12 +1,12 @@
 import { Button } from '@/components/ui/button'
-import { fetchCountryByCode } from '@/lib/fetchCountry'
+import { fetchCountry } from '@/lib/fetchCountry'
 import { formatPopulation } from '@/lib/formatPopulation'
 import { CountryTypes } from '@/types'
 import Link from 'next/link'
 
 export async function PageContent({ country }: { country: CountryTypes }) {
   const borderCountries = country.borders?.length
-    ? await Promise.all(country.borders.map((code) => fetchCountryByCode(code)))
+    ? await Promise.all(country.borders.map((code) => fetchCountry(code)))
     : []
 
   return (

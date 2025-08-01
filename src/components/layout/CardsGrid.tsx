@@ -1,8 +1,8 @@
-import { fetchAllCountries } from '@/lib/fetchCountries'
+import { fetchCountries } from '@/lib/fetchCountries'
 import CardsGridClient from './CardsGridClient'
 
 const CardsGrid = async () => {
-  const countries = await fetchAllCountries()
+  const countries = await fetchCountries()
 
   return <CardsGridClient countries={countries} />
 }

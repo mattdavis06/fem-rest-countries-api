@@ -1,7 +1,7 @@
 import { COUNTRIES_API } from '@/constants/urls'
 import { CountryTypes } from '@/types'
 
-export const fetchCountryByCode = async (
+export const fetchCountry = async (
   code: string,
 ): Promise<CountryTypes | null> => {
   try {

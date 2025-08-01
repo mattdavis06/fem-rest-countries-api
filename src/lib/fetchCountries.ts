@@ -1,7 +1,7 @@
-import { COUNTRIES_API } from '@/constants/urls'
+import { COUNTRIES_API, COUNTRY_FIELDS } from '@/constants/urls'
 
-export const fetchAllCountries = async () => {
-  const res = await fetch(`${COUNTRIES_API}/all`, {
+export const fetchCountries = async () => {
+  const res = await fetch(`${COUNTRIES_API}/all?fields=${COUNTRY_FIELDS}`, {
     next: { revalidate: 86400 }, //* Cache for 1 day
   })
 

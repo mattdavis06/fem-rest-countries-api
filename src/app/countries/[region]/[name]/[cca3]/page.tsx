@@ -1,5 +1,5 @@
 import BackBtn from '@/components/layout/shared/BackBtn'
-import { fetchCountryByCode } from '@/lib/fetchCountry'
+import { fetchCountry } from '@/lib/fetchCountry'
 import { notFound } from 'next/navigation'
 import { PageContent, PageHeader, PageMap } from './_components'
 
@@ -16,7 +16,7 @@ export default async function CountryPage({
 }) {
   const { cca3 } = await params
   const decodedCode = decodeURIComponent(cca3)
-  const country = await fetchCountryByCode(decodedCode)
+  const country = await fetchCountry(decodedCode)
 
   if (!country) {
     notFound()
